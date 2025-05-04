@@ -10,15 +10,24 @@ import {
 import Layout from './Components/Layout/Layout.jsx';
 import ErrorPage from './Components/ErrorPage/ErrorPage.jsx';
 import Home from './Components/Home/Home.jsx';
+import BookDetails from './Components/BookDetails/BookDetails.jsx';
 const router = createBrowserRouter([
-  { path: '/', 
+  { 
+    path: '/', 
     errorElement:<ErrorPage></ErrorPage>,
     element: <Layout></Layout>,
     children: [
       {
         path:'/home',
         element:<Home></Home>
-      }
+      },
+      {
+        path:'/books/:bookId',
+        loader:()=>fetch(`/public/booksData.json`),
+        element:<BookDetails></BookDetails>
+
+      },
+      
     ]
     
   },
