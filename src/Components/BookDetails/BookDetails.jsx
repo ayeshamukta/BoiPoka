@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
+import { addToReadList, addToWishList } from '../Utility/Utility';
 
 const BookDetails = () => {
 
@@ -15,6 +16,15 @@ const BookDetails = () => {
 
     // console.log(bookName);
 
+
+    const handleReadBooks=(id)=>
+    {
+        addToReadList(id);
+    }
+    const handleWishList=(id)=>
+    {
+        addToWishList(id);
+    }
     return (
         <div className='flex lg:justify-between flex-col px-10 space-y-10  lg:flex-row my-20 lg:w-[1200px] mx-auto items-center'>
             <div className='lg:max-w-[573px] '>
@@ -43,8 +53,8 @@ const BookDetails = () => {
                     <p>Rating:  <span className='text-black font-semibold'>{rating}</span></p>
                 </div>
                 <div className='flex gap-6'>
-                    <button className='btn btn-primary'>Read</button>
-                    <button className='btn text-white btn-success'>Wishlist</button>
+                    <button className='btn btn-primary' onClick={()=>handleReadBooks(bookId)}>Mark as Read</button>
+                    <button onClick={()=>handleWishList(bookId)} className='btn text-white btn-success'>Wishlist</button>
                 </div>
             </div>
         </div>
