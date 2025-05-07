@@ -3,7 +3,7 @@ const getReadList=()=>
     const readListStr= localStorage.getItem('read-List');
     if(readListStr)
     {
-        console.log('exist');
+        // console.log('exist');
         const readList = JSON.parse(readListStr);
         return readList;
     }
@@ -63,5 +63,5 @@ const addToWishList=(id)=>
 }
 
 
-export {addToReadList,addToWishList}
+export {addToReadList,addToWishList,getStoredWishList,getReadList}
 
