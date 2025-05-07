@@ -2,6 +2,8 @@ import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import { addToReadList, addToWishList } from '../Utility/Utility';
 
+import { ToastContainer, toast } from 'react-toastify';
+
 const BookDetails = () => {
 
     const { bookId } = useParams();
@@ -20,6 +22,7 @@ const BookDetails = () => {
     const handleReadBooks=(id)=>
     {
         addToReadList(id);
+        
     }
     const handleWishList=(id)=>
     {
@@ -53,6 +56,7 @@ const BookDetails = () => {
                     <p>Rating:  <span className='text-black font-semibold'>{rating}</span></p>
                 </div>
                 <div className='flex gap-6'>
+                    <ToastContainer></ToastContainer>
                     <button className='btn btn-primary' onClick={()=>handleReadBooks(bookId)}>Mark as Read</button>
                     <button onClick={()=>handleWishList(bookId)} className='btn text-white btn-success'>Wishlist</button>
                 </div>

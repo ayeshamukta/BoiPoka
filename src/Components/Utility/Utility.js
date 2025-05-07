@@ -1,3 +1,6 @@
+import { toast } from 'react-toastify';
+
+
 const getReadList=()=>
 {
     const readListStr= localStorage.getItem('read-List');
@@ -18,6 +21,7 @@ const addToReadList =(id)=>
     if(readList.includes(id))
     {
         console.log('already exist');
+        toast.info('Already Exist')
         
     }
     else
@@ -30,7 +34,7 @@ const addToReadList =(id)=>
 
 const handleActive=()=>
 {
-    
+
 }
 
 // WishList
@@ -54,7 +58,8 @@ const addToWishList=(id)=>
     const storedWishlist = getStoredWishList();
     if(storedWishlist.includes(id))
     {
-        console.log('this is already in wishlist');
+        // console.log('this is already in wishlist');
+        toast.info('Already in wishlist')
         
     }
     else
