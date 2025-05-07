@@ -29,9 +29,42 @@ const ListedBooks = () => {
         setWishList(filteredWishList);
     }, [])
 
+
+    const handleSort = (type) => {
+        if (type === 'rating') 
+        {
+            const sortedRatingReadList = [...readList].sort((a,b)=>a.rating-b.rating)
+            setReadList(sortedRatingReadList)
+            const sortedRatingWishList = [...wishList].sort((a,b)=>a.rating-b.rating)
+            setWishList(sortedRatingWishList)
+        }
+        else if(type ==='page')
+        {
+            const sortedPageList = [...readList].sort((a,b)=>a.totalPages-b.totalPages)
+            setReadList(sortedPageList)
+            const sortedWishList = [...wishList].sort((a,b)=>a.totalPages-b.totalPages)
+            setWishList(sortedWishList)
+        }
+
+        // const sortByPages = () => {
+
+        // }
+    }
+
     return (
-        <div className='lg:w-[1200px] mx-auto'>
-            <button className="btn btn-block h-20 text-2xl rounded-2xl my-6">Books</button>
+        <div className='lg:w-[1200px] mx-auto '>
+            <div className='items-center justify-center text-center'>
+                <button className="btn btn-block h-20 text-2xl rounded-2xl my-6">Books</button>
+                <button className="btn btn-success text-white font-bold text-xl" popoverTarget="popover-1" style={{ anchorName: "--anchor-1" } /* as React.CSSProperties */}>
+                    Sort
+                </button>
+
+                <ul className="dropdown menu w-52 rounded-box bg-base-100 shadow-sm"
+                    popover="auto" id="popover-1" style={{ positionAnchor: "--anchor-1" } /* as React.CSSProperties */}>
+                    <li onClick={() => handleSort('rating')}><a>Sort By Rating</a></li>
+                    <li onClick={() => handleSort('page')}><a>Sort By Page</a></li>
+                </ul>
+            </div>
 
             {/* Tabs */}
             <Tabs>
@@ -55,7 +88,7 @@ const ListedBooks = () => {
                 <TabPanel>
                     <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 py-10'>
                         {
-                            wishList.map(book=><Book book={book}></Book>)
+                            wishList.map(book => <Book book={book}></Book>)
                         }
                     </div>
                 </TabPanel>

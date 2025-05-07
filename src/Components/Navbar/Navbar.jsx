@@ -6,9 +6,9 @@ const Navbar = () => {
 
     const links = <>
         {/* <li ><a className='btn  btn-outline btn-accent'>Home</a></li> */}
-        <NavLink to={'/home'} className='btn mr-9  btn-outline btn-accent'>Home</NavLink>
-        <NavLink to={'/listedBooks'} className={'mr-9 btn'} >Listed Books</NavLink>
-        <NavLink to={'/pages'} className={'mr-9 btn'}>Pages to read</NavLink>
+        <NavLink to={'/home'} className={({ isActive }) => (isActive ? "btn btn-outline mr-9" : "btn mr-9")}>Home</NavLink>
+        <NavLink to={'/listedBooks'} className={({ isActive }) => (isActive ? "btn btn-outline mr-9" : "btn mr-9")} >Listed Books</NavLink>
+        <NavLink to={'/pages'} className={({ isActive }) => (isActive ? "btn btn-outline mr-9" : "btn mr-9")}>Pages to read</NavLink>
     </>
 
     return (
