@@ -4,7 +4,8 @@ import { FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <footer className="footer sm:footer-horizontal bg-neutral text-neutral-content p-10">
+        <div className='footer  sm:footer-horizontal bg-neutral  text-neutral-content p-10'>
+            <footer className=" w-[1200px] flex mx-auto justify-between  ">
             <aside>
                 <svg
                     width="50"
@@ -34,6 +35,7 @@ const Footer = () => {
                 </div>
             </nav>
         </footer>
+        </div>
     );
 };
 

@@ -16,7 +16,7 @@ const Books = () => {
     return (
         <div className='lg:w-[1200px] mx-auto text-center mb-10'>
             <h1 className='text-4xl font-bold mb-10'>Books</h1>
-            <div className='grid lg:grid-cols-3 gap-7 grid-cols-1'>
+            <div className='grid lg:grid-cols-3 gap-7 md:grid-cols-2 grid-cols-1'>
                 {
                     data.map(book=><Book book={book}></Book>)
                 }
